@@ -7,7 +7,6 @@
 Преобразовать массив таким образом, чтобы сначала располагались все отрицательные элементы, а потом — все положительные (элементы, равные нулю, считать положительными).
  */
 
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,6 +42,8 @@ namespace L4CS
             int n;
             try { n = Int32.Parse(textBox1.Text); }
             catch { MessageBox.Show("Неверный ввод!"); return; }
+            if (n > 100) { MessageBox.Show("Слишком большое значение!"); return; }
+
             dataGridView1.ColumnCount = n;
             for (int i = 0; i < n; i++) dataGridView1.Columns[i].Name = "n" + i.ToString();
             dataGridView2.ColumnCount = n;
@@ -67,12 +68,12 @@ namespace L4CS
             foreach (var item in matr) if (item > C) count++;
             label1.Text = "Кол-во элементов, больших С: " + count.ToString();
 
-            int prod = 1;
+            long prod = 1;
             int ind = 0;
             if (matr.Max() > Math.Abs(matr.Min())) ind = matr.IndexOf(matr.Max()); else ind = matr.IndexOf(matr.Min());
             if (ind+1 == matr.Count()) { prod = 0; }
             else for (int i = ind+1; i < matr.Count(); i++ ) prod*=matr[i];
-            label2.Text = "Произведение чисел, \r\nстоящих после большего по модулю: " + prod.ToString();
+            label2.Text = "Произведение чисел, \r\nстоящих после большего по модулю: " + prod.ToString() + "   " + ind;
 
             count = 0;
             foreach (var item in matr)
