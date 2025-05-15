@@ -73,7 +73,7 @@ namespace L4CS
             if (matr.Max() > Math.Abs(matr.Min())) ind = matr.IndexOf(matr.Max()); else ind = matr.IndexOf(matr.Min());
             if (ind+1 == matr.Count()) { prod = 0; }
             else for (int i = ind+1; i < matr.Count(); i++ ) prod*=matr[i];
-            label2.Text = "Произведение чисел, \r\nстоящих после большего по модулю: " + prod.ToString() + "   " + ind;
+            label2.Text = "Произведение чисел, \r\nстоящих после большего по модулю: " + prod.ToString();
 
             count = 0;
             foreach (var item in matr)
